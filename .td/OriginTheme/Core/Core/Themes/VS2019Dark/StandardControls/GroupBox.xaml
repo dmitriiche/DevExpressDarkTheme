@@ -1,0 +1,60 @@
+﻿<ResourceDictionary mc:Ignorable="cs" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:cs="colorscheme_ignorable_uri" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal" xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.MergedDictionaries>
+    <dxt:ResourceDictionaryEx Source="/DevExpress.Xpf.Themes.VS2019Dark.v20.2;component/Core/Core/Themes/UICore.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <!-- General -->
+  <ControlTemplate x:Key="{dxt:GroupBoxThemeKey ResourceKey=ControlTemplate}" TargetType="{x:Type GroupBox}">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid x:Name="headerGrid">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="0.5*" />
+          <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <dx:ContentContainer x:Name="ContentContainer" Grid.Column="1" Grid.RowSpan="2" Margin="3,0,3,0">
+          <ContentPresenter Content="{TemplateBinding Header}" ContentSource="Header" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" RecognizesAccessKey="True" cs:id="ContentPresenter_0000" />
+        </dx:ContentContainer>
+        <Border BorderBrush="#FF3F3F46" BorderThickness="1,1,0,0" Grid.Row="1" Margin="0,-1,0,0" Width="9" cs:id="Border_0000" />
+        <Border BorderBrush="#FF3F3F46" BorderThickness="0,1,1,0" Grid.Column="2" Grid.Row="1" Margin="0,-1,0,0" cs:id="Border_0001" />
+      </Grid>
+      <Border x:Name="ContentBorder" BorderBrush="#FF3F3F46" BorderThickness="1,0,1,1" Grid.Row="1" cs:id="Border_0002" />
+      <ContentPresenter x:Name="Content" Grid.Row="1" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+    </Grid>
+    <ControlTemplate.Triggers>
+      <Trigger Property="HasHeader" Value="False">
+        <Setter Property="Margin" TargetName="Content" Value="12" />
+        <Setter Property="BorderThickness" TargetName="ContentBorder" Value="1" />
+        <Setter Property="Margin" TargetName="ContentBorder" Value="1,1,-1,-1" />
+        <Setter Property="Visibility" TargetName="headerGrid" Value="Collapsed" />
+      </Trigger>
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
+  <Style x:Key="{dxt:DefaultStyleThemeKey FullName=System.Windows.Controls.GroupBox}" TargetType="{x:Type GroupBox}">
+    <Setter Property="Padding" Value="12,8,12,12" />
+    <Setter Property="Template" Value="{DynamicResource {dxt:GroupBoxThemeKey ResourceKey=ControlTemplate}}" />
+    <Style.Triggers>
+      <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
+        <Setter Property="Padding" Value="14" />
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+  <Style x:Key="{dxt:DefaultStyleThemeKey FullName=DevExpress.Xpf.Core.GroupFrame}" TargetType="{x:Type dx:GroupFrame}">
+    <Setter Property="Foreground" Value="#FFF1F1F1" cs:id="Setter_0000" />
+    <Setter Property="Padding" Value="12,8,12,12" />
+    <Setter Property="Template" Value="{DynamicResource {dxt:GroupBoxThemeKey ResourceKey=ControlTemplate}}" />
+    <Setter Property="dx:FocusHelper2.Focusable" Value="False" />
+    <Style.Triggers>
+      <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
+        <Setter Property="Padding" Value="14" />
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+</ResourceDictionary>
